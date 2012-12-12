@@ -692,7 +692,7 @@ abstract class GxActiveRecord extends CActiveRecord {
 		if (is_string($column))
 			$column = $staticModelClass->getTableSchema()->getColumn($column);
 
-		if (!$column->isForeignKey)
+		if (!$column || !$column->isForeignKey)
 			return null;
 
 		$relations = $staticModelClass->relations();
